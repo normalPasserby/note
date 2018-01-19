@@ -4,9 +4,43 @@
 ** TODO think in java pdf
 * TODO IDEA
   官方教程
-* TODO spring 
-** TODO 看《源码解析》，用IDEA + MAVEN 不修改和编译了。。
+* TODO spring 先细节 在宏观 设计模式
+** TODO [#A] [[https://github.com/code4craft/tiny-spring/releases][tiny-spring]]
+   让你搞明白spring最核心的ioc和aop两个功能，
+   建议从ioc看起，相对来说相关的代码较少，类少，能让你快速有个大概的了解，增加点信
 
+   下载下来所有step1--step10所有的项目，全部导入到工程，
+   看看作者是怎样一步步把spring整个框架搭起来的，一步步顺
+   着spring的功能完善代码，顺便学学spring类的组织结构，学到
+   很多，等学完后头脑很清晰，确实受益匪浅，
+   debug断点运行是我针对这个项目学习最好的方式，
+** TODO [#B] SPRING技术内幕：深入解析SPRING架构与设计原理 pdf 
+  +先了解大致内容，之后宏观看一下，最后微观
+ 
+*** spring core
+**** ioc
+***** 简介 控制反转 依赖由容器注入  方式 在对象创建时注入依赖
+      ioc容器的基本规范 BeanFactory （接口）
+      BeanDefinition Bean的定义（就是一个类似int,string的数据类型）
+      也叫 FactoryBean
+***** refresh 以 FileSystemXmlApplicationContext 为例
+      ioc容器为 DefaultListableBeanFactory
+      BeanDefinittionReader为  XmlBeanDefinittionReader
+      + refreshBeanFactory()
+        createBeanFactory();
+        customizeBeanFactory(beanFactory);
+        loadBeanDefinitions(beanFactory);//用到beanDefinitionReader 
+****** 定位 资源
+       getResourceByPath()  
+       主要用了 FileSystemResource()
+****** 读入 得到Bean
+       reader 用DOM解析XML 成为doc对象
+       转化成BeanDefinition
+****** 注册
+     hashmap 十分简单
+***** 依赖注入  getBean()
+      chlib实例化
+** TODO 看《源码解析》，用IDEA + MAVEN 不修改和编译了。。
 ** TODO 架构探险从零开始写JavaWeb框架 pdf  实在不行，只看不做
 *** maven
 **** utf8
@@ -38,44 +72,30 @@
      <skipTests>true</skipTests>
      </configuration>
      </plugin>
-     
-
-** TODO [[https://github.com/code4craft/tiny-spring/releases][tiny-spring]]
-   让你搞明白spring最核心的ioc和aop两个功能，
-   建议从ioc看起，相对来说相关的代码较少，类少，能让你快速有个大概的了解，增加点信
-
-   下载下来所有step1--step10所有的项目，全部导入到工程，
-   看看作者是怎样一步步把spring整个框架搭起来的，一步步顺
-   着spring的功能完善代码，顺便学学spring类的组织结构，学到
-   很多，等学完后头脑很清晰，确实受益匪浅，
-   debug断点运行是我针对这个项目学习最好的方式，
 ** TODO [[http://www.cnblogs.com/xing901022/p/4178963.html][阅读源码的前期准备]] 
 　　1 Spring jar包以及源码使用
 　　2 简单的spring运行示例
 　　3 利用断点调试程序，如何快速的阅读程序【快捷键等的使用】
-** TODO SPRING技术内幕：深入解析SPRING架构与设计原理 pdf 
-  +先了解大致内容，之后宏观看一下，最后微观
- 
-*** spring core
-**** ioc
-***** 简介 控制反转 依赖由容器注入  方式 在对象创建时注入依赖
-      ioc容器的基本规范 BeanFactory （接口）
-      BeanDefinition Bean的定义（就是一个类似int,string的数据类型）
-      也叫 FactoryBean
-***** refresh 以 FileSystemXmlApplicationContext 为例
-      ioc容器为 DefaultListableBeanFactory
-      BeanDefinittionReader为  XmlBeanDefinittionReader
-      + refreshBeanFactory()
-        createBeanFactory();
-        customizeBeanFactory(beanFactory);
-        loadBeanDefinitions(beanFactory);//用到beanDefinitionReader 
-****** 定位 资源
-       getResourceByPath()  
-       主要用了 FileSystemResource()
-****** 读入 得到Bean
-       reader 用DOM解析XML 成为doc对象
-       转化成BeanDefinition
-****** 注册
-     hashmap 十分简单
-***** 依赖注入  getBean()
-      chlib实例化
+** spring ioc  反射 xml 类加载
+   某个资源中（如xml）中读取数据，并配置BeanDefinition中的 Bean 元数据
+
+   BeanDefinition： 描述了 Bean 元数据 
+   类信息 
+   Bean实例
+   propertyValues 里面包含了一个个 PropertyValue 条目，
+   每个条目都是键值对 String - Object，
+   分别对应要生成实例的属性的名字与类型。
+   
+   getBean()时创建实例，
+   并放入BeanDefinition中，用反射设置了字段,
+   如果依赖的类没实例，就创建一个。
+
+   ioc容器 用Map来保存BeanDefinition
+   ApplicationContext = ioc容器 + resourceloader 
+** sprint aop  动态代理 ASM，CGLib和javassist，后两者是对ASM的封装。
+   TargetSource 被代理对象的实例和类型
+   methodInterceptor 拦截器
+   ClassFilter 用正则对类名作匹配
+
+   配合BeanFactory提供的 BeanPostProcessor 可以造Bean的代理对象
+   就是BeanDefinition中的Bean是代理的

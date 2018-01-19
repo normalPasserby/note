@@ -181,11 +181,20 @@ C-c / r	触发后，会提示输入匹配串，并且将所有匹配的项显示
 
 
 * TODO [#A] study emacs 
+** TODO lisp  [[https://www.gnu.org/software/emacs/manual/html_node/eintr/index.html#Top][here]]
+    (set 'flowers '(rose violet daisy buttercup))
+    (setq trees '(pine fir oak maple)   
+      herbivores '(gazelle antelope zebra))  set的简易版本（没有‘），并且可以多变量赋值
+      (buffer-name)
+      (buffer-file-name)
+  (current-buffer)
+ (other-buffer)
 ** TODO 资源
    [[https://www.emacswiki.org/][Emacs Wiki]] 中的 [[https://www.emacswiki.org/emacs/EmacsLisp][Emacs Lisp,]] 
    C-h i       info  
 
-   [[http://dotemacs.de/][The very unofficial dotemacs homey ]] 一个搜集 .emacs 文件的网站。你可以从这里学习怎么配置 .emacs. 
+   [[http://dotemacs.de/][The very unofficial dotemacs homey ]] 
+   一个搜集 .emacs 文件的网站。你可以从这里学习怎么配置 .emacs. 
 
    Emacs Lisp 书籍推荐(可选)
    Bob Glickstein的Writing GNU Emacs Extensions是最好的.
@@ -234,7 +243,6 @@ file:~/code/main.c::255                     进入到 255 行
 file:~/xx.org::My Target                    找到目标‘<<My Target>>’
 file:~/xx.org/::#my-custom-id               查找自定义 id 的项
 
-
 ** 重要按键 帮助文档 复制 粘贴 窗口
    M-x describe-variable, 快捷键 C-h v, 查看变量的文档
    M-x describe-function, 快捷键 C-h f, 查看命令的文档
@@ -245,13 +253,6 @@ file:~/xx.org/::#my-custom-id               查找自定义 id 的项
     C-x 1 仅保留当前窗口
     C-x 2 将当前窗口分到上边
     C-x 3 将当前窗口分到右边
-
-** TODO lisp  [[https://www.gnu.org/software/emacs/manual/html_node/eintr/List-Processing.html#List-Processing][here]]
-    (set 'flowers '(rose violet daisy buttercup))
-    (setq trees '(pine fir oak maple)   
-      herbivores '(gazelle antelope zebra))  set的简易版本（没有‘），并且可以多变量赋值
-
-
 ** TODO misc 杂物 永远需要整理
 *** 代理
 有些网站 Emacs 访问不了

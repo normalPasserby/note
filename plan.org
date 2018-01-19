@@ -1,6 +1,32 @@
 mathMY PROJECTS    -*- mode: org; -*-    -*- mode: org; -*-
 
+学会看电子书，文档来学习编程
+工作时前2小时做重要的事(看书，看文档)，后面做轻松的事（写项目，看视频）。
+
++ java 要求
+  jdk jvm ssm 并发 分布 设计模式 数据库如mysql 
+  做到优秀
+
+[[http://www.vpsdaquan.cn/banwagong.html][vps]]
+[[https://bwh1.net/index.php][banwagong]]  1年
+
+[[https://pan.baidu.com/s/1eRrUuci][实战Java虚拟机——JVM故障诊断与性能优化]]
+
+下东西
+[[http://xwood.net/index.html][小木人]]
+[[https://pan.baidu.com/s/1bpoXrLt][ 实战Java虚拟机 ]]
+[[http://xwood.net/_site_domain_/_root/5870/5930/5932/t_c265828.html][Java虚拟机精讲]]
+[[http://xwood.net/_site_domain_/_root/5870/5930/5932/t_c265829.html][HotSpot实战]]
+
 * 作息
+| time | todo     | result |
+|------+----------+--------|
+|      | 起床     |        |
+|      | 俯卧撑   |        |
+|      | 早饭散步 |        |
+|      | 午睡     |        |
+|      |          |        |
+  
   早睡早起
   俯卧撑 or run
   背单词
@@ -8,30 +34,32 @@ mathMY PROJECTS    -*- mode: org; -*-    -*- mode: org; -*-
   午睡1小时或半小时
   不碰台式电脑
   番茄工作法
-
+  
 * TODO plan
 回家第一件事就是在一个本子上写好作息和计划，经常看。
-** TODO [#A] emacs   elisp application  and so on
-** TODO [#A] spring
-** TODO [#A] jvm
+** TODO [#A] MyBatis  会用 会改
+** TODO [#A] jvm  会编译 会改 jdk 反射 xml 类加载 动态代理 ASM，CGLib和javassist
+** TODO spring 会用 会改   官方文档
 ** TODO mit 线代视频 + 张宇高数视频
-** TODO 算法导论 书 视频 另外，邓俊辉的数据结构视频可以看看
-** poj
-** stl剖析
-** SCIP
-** misc
-   MyBatis
-   nginx
+** ?
    redix
    Spark
    docker
-   webkit webGL
+** emacs   elisp application  and so on
+** 算法导论 书 视频 另外，邓俊辉的数据结构视频可以看看
+** poj
+** stl剖析
+** SCIP
+** misc  先会用，在看源码
    java细节
    cpp 细节
    mariaDB
    PostageSQL
+   nginx
+   webkit webGL
    Andoid  TCP/IP
    lucence
    后台开发核心技术与应用实践
+   深入剖析python [[https://www.zhihu.com/question/40787248/answer/88477685][内容类似于《Python源码剖析]]
    自制编译器
-   深入剖析python
+
