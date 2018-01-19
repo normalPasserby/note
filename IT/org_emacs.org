@@ -1,0 +1,314 @@
+#+STARTUP: overview 
+#+TITLE: 教程
+#+BEGIN_QUOTE
+Everything should be made as simple as possible,
+but not any simpler -- Albert Einstein
+#+END_QUOTE
+#+BEGIN_CENTER 
+Everything should be made as simple as possible,but not any simpler afw 
+#+END_CENTER
+
+#+BEGIN_COMMENT
+这里的注释不会被导出
+#+END_COMMENT
+
+#+TAGS: { 桌面(d) 服务器(s) }  编辑器(e) 浏览器(f) 多媒体(m) 压缩(z)
+#+TAGS:  { @Windows(w)  @Linux(l) }  
+#+TAGS:  { 糟糕(1) 凑合(2) 不错(3) 很好(4) 极品(5) } 
+C-c C-c 改变 checkbox
+
+#+SEQ_TODO: TODO(T) WAIT(W) | DONE(D!) CANCELED(C@) 
+#+COLUMNS: %10ITEM  %10PRIORITY %15TODO %65TAGS    
+
+* TODO spacemace 					 
+  SPC ? 看快捷键
+  [[http://spacemacs.org/layers/+emacs/org/README.html#description][spacemaces org 详细文档]]  主要是按键
+  [[file:~/%E6%A1%8C%E9%9D%A2/%E5%88%B0%20org_text%20%E7%9A%84%E9%93%BE%E6%8E%A5/study_note/study_org.org::*spacemace%20%E9%87%8D%E8%A6%81%E6%8C%89%E9%94%AE][spacemace 重要按键]]
+
+** 重要按键
+   SPC f e R   重新加载配置
+   SPC h SPC   帮助
+   SPC h d f 	describe-function
+   SPC h d k 	describe-key
+   SPC h d m 	describe-mode
+   SPC h d v 	describe-variable
+   
+   SPC h d v load-path  看load-path 
+	(push "/some/path/" load-path)
+   
+    
+* TODO study org 
+
+** TODO org 各种资料教程
+重要
+  [[http://orgmode.org/worg/org-tutorials/][org tutor]] 官方教程推荐
+  C-h i       info
+  [[http://www.cnblogs.com/Open_Source/archive/2011/07/17/2108747.html#sec-8][Org-mode 简明手册]]
+次要
+  [[https://i.linuxtoy.org/docs/guide/ch32.html][org emace标签的应用]]
+  [[http://forrestchang.com/14824097554043.html][使用Emacs Org-mode + GitHub Pages 来写博客]]
+
+** org 开emacs就打开todo.org
+    C-x C-f ~/.emacs.d/init.el 或者 另一个配置文件？
+    Go to the end of this file. (Handy shortcut: C-end)
+    Add (find-file "~/todo.org")   
+    Save with C-x C-s (save-buffer). 
+
+** TODO org note
+
+*** :TODO Items
+    C-c C-t (org-todo) 改状态
+
+    M-S-return (org-insert-todo-heading  插入todo heading
+    ‘C-c / t     (org-show-todo-tree)’ (*note Sparse trees::)
+    ‘C-c a t     (org-todo-list)’    see Agenda Views
+
+    :todo_of_file: 
+    #+TODO: TODO FEEDBACK | VERIFY DONE
+    | 后面是绿色的，前面是红色 
+    只在一个文件中有效
+    :END:      
+
+    + 显示完成时间
+      配置，每当DONE，会显示 CLOSED: [2018-01-02 二 15:20]，不保留
+      (setq org-log-done 'time)
+      配置，每当DONE，会显示 CLOSED: [2018-01-02 二 15:20]，保留
+      (setq org-log-done 'note)
+      单文件
+      #+STARTUP: logdone
+      #+STARTUP: lognotedone’
+
+    + 优先级
+      默认有3个
+      *** TODO [#A] Write letter to Sam Fortune
+      ‘S-<up>     (org-priority-up)’
+      ‘S-<down>     (org-priority-down)’
+      #+PRIORITIES: A C B
+
+    + 扩展
+      增加keyword  TODO,DONE -> TODO,DONE,CANCEL
+      man1,man2,man3|done
+      多套keywords
+      加快捷键  todo(t)
+      + 习惯模式
+	** TODO Shave
+        SCHEDULED: <2018-01-04 四 .+2d/4d>
+	- State "DONE"       from "TODO"       [2009-10-15 Thu]
+	- State "DONE"       from "TODO"       [2009-10-12 Mon]
+	- State "DONE"       from "TODO"       [2009-10-10 Sat]
+	- State "DONE"       from "TODO"       [2009-10-04 Sun]
+	- State "DONE"       from "TODO"       [2009-10-02 Fri]
+	- State "DONE"       from "TODO"       [2009-09-29 Tue]
+	- State "DONE"       from "TODO"       [2009-09-25 Fri]
+	- State "DONE"       from "TODO"       [2009-09-19 Sat]
+	- State "DONE"       from "TODO"       [2009-09-16 Wed]
+	- State "DONE"       from "TODO"       [2009-09-12 Sat]
+        :PROPERTIES:
+        :STYLE:    habit
+    :LAST_REPEAT: [2018-01-02 二 15:41]
+        :END:
+      任务百分比
+
+*** Dates and Times
+    :PROPERTIES:
+    :LAST_REPEAT: [2018-01-03 三 10:38]
+    :END:
+    timestamp   可以自定义 比如 12:45         ⇒ 2006-06-13 12:45
+    ‘C-c .     (org-time-stamp)’   插入，修改或RANGE  
+    ‘C-c !     (org-time-stamp-inactive)’ 同上，不过是不活跃的timestamp 
+    ‘C-u C-c .’  ‘org-time-stamp-rounding-minutes’.  带小时，分钟的
+
+    ‘S-<left>     (org-timestamp-down-day)’
+    ‘S-<right>     (org-timestamp-up-day)’
+    
+    ‘S-<up>     (org-timestamp-up)’          可以改年月日，注意位置
+    ‘S-<down>     (org-timestamp-down-down)’    
+
+    ‘C-c C-d     (org-deadline)’
+    ‘C-c C-s     (org-schedule)’
+
+    ‘C-c C-x C-i     (org-clock-in)’  计时开始   
+    ‘C-c C-x C-o     (org-clock-out)’ 结束
+    ‘C-c C-t     (org-todo)’  变成DONE时也会结束
+
+    + 例子 
+      <2006-11-01 Wed 19:15> 
+      <2006-11-02 Thu 20:00-22:00> 时间段
+      <2007-05-30 三 12:30 +1w>  每周
+       <2004-08-23 Mon>--<2004-08-26 Thu>` RANGE
+       [2006-11-01 Wed]
+
+
+*** TODO Agenda Views::               
+    M-x customize-variable org-todo-keywords  增加状态种类
+   
+    tab (org-cycle)
+    C-c [ (org-agenda-file-to-front).  加入当前文件（如todo.org）到agenda file list中去
+    C-c C-s (org-schedule)  Go to a task .设定计划完成日期
+****  M-x org-agenda  a    显示当前一周的计划视图
+    f (org-agenda-later)       后一周
+    b (org-agenda-earlier)     前一周
+    Press RET to jump to a task. 
+
+    快捷键
+    t (org-todo) 
+
+
+    改变一个计划的日期
+    （可以在视图中，也可以直接在它的时间（<2014-02-28 Fri>）上改）
+    S-right (org-agenda-do-date-later)  延后计划
+    M-left (org-agenda-do-date-earlier) 提前
+    C-c C-s (org-agenda-schedule)       自定义计划时间
+**** C-c / t (org-sparse-tree  查看部分heading,这里t表示todo
+稀疏树
+
+Org 模式的一个重要的功能是能根据大纲树中选择的信息构造出稀疏的树，这样文档就可以尽可能地折叠，但是选择的信息和它对应的标题会显示出来。
+
+C-c /	它会提示再输入一个字符来选择稀疏树的创建命令。
+C-c / r	触发后，会提示输入匹配串，并且将所有匹配的项显示成稀疏树。所有的匹配项都会高亮显示；按 C-c C-c 取消高亮。
+
+
+*** TODO Capture - Refile - Archive:: 
+
+*** TODO Marku
+
+*** org normal function
+    M-up (org-metaup  一个heading上升
+    M-x org-sort-entries  根据？？排序heading,注意光标要在想要排序的heading
+    
+
+
+
+
+* TODO [#A] study emacs 
+** TODO 资源
+   [[https://www.emacswiki.org/][Emacs Wiki]] 中的 [[https://www.emacswiki.org/emacs/EmacsLisp][Emacs Lisp,]] 
+   C-h i       info  
+
+   [[http://dotemacs.de/][The very unofficial dotemacs homey ]] 一个搜集 .emacs 文件的网站。你可以从这里学习怎么配置 .emacs. 
+
+   Emacs Lisp 书籍推荐(可选)
+   Bob Glickstein的Writing GNU Emacs Extensions是最好的.
+** note
+*** macro 多种操作重复
+    按下 F3 开始录制宏
+      然后按下 C-a 跳到行首,输入
+      “#include "”,再按 C-e 跳到行尾,再输入一个“"”,C-n 跳到下一行,
+    F4 结束宏录制。
+    之后按下 C-x e e e(或者 C-3 <f4>)将宏重复播放三次
+*** key map
+    (global-set-key key command)
+    (global-set-key (kbd "<f5>") 'clipboard-yank)
+
+    (define-key keymap key command)
+    (define-key c-mode-map (kbd "<f9>") 'compile)
+    use C-h f to find keyma
+** TODO 写链接
+4.3 外部链接
+
+Org 支持的链接格式包括文件、网页、新闻组、BBDB 数据库项、IRC 会话和记录。外部链接是 URL 格式的定位器。以识别符开头，后面跟着一个冒号，冒号后面不能有空格。下面是一些例子：
+
+http://www.astro.uva.nl/~dominik            on the web
+/home/dominik/images/jupiter.jpg            same as above
+file:papers/last.pdf                        file, relative path
+file:projects.org                           another Org file
+
+docview:papers/last.pdf::NNN                open file in doc-view mode at page NNN
+id:B7423F4D-2E8A-471B-8810-C40F074717E9     Link to heading by ID
+
+如果描述信息是一个文件名或者是指向图片的 URL。HTML 导出（见 12.4 节[HTML 导出]）时会将图片内联成一个可以点击的按钮。如果没有描述信息且链接指向一个图片，那么图片就会嵌入到导出的 HTML 文件中。
+
+4.4 使用链接
+C-c l	在当前位置保存一个链接。这是一个全局命令（你可以设置自己的快捷键），可以在任何类型的缓冲区中使用。链接保存下来以便以后插入 Org 文件中（见下面）
+C-c C-l	插入一个链接。它会让你输入，你可以输入一个链接，也可心用上/下键来获取保存的链接。它还会让你输入描述信息。
+C-c C-l（光标在链接上）	当光标处于链接上时，你可以修改链接
+C-c &	跳回到一个已记录的地址。用 C-c % 可以将地址记录下来
+
+4.5 目标链接
+
+文件链接可以包含一些其他信息使得进入链接时可以到达特定的位置。比如双冒号之后的一个行号或者搜索选项。
+
+下面是一些包含搜索定位功能的链接例子以及其说明：
+
+file:~/code/main.c::255                     进入到 255 行
+file:~/xx.org::My Target                    找到目标‘<<My Target>>’
+file:~/xx.org/::#my-custom-id               查找自定义 id 的项
+
+
+** 重要按键 帮助文档 复制 粘贴 窗口
+   M-x describe-variable, 快捷键 C-h v, 查看变量的文档
+   M-x describe-function, 快捷键 C-h f, 查看命令的文档
+   M-x describe-key, 快捷键 C-h k, 查看快捷键的文档
+
+   Alt+w (复制) 或者 Ctrl+w (剪切)     Ctrl+y。
+
+    C-x 1 仅保留当前窗口
+    C-x 2 将当前窗口分到上边
+    C-x 3 将当前窗口分到右边
+
+** TODO lisp  [[https://www.gnu.org/software/emacs/manual/html_node/eintr/List-Processing.html#List-Processing][here]]
+    (set 'flowers '(rose violet daisy buttercup))
+    (setq trees '(pine fir oak maple)   
+      herbivores '(gazelle antelope zebra))  set的简易版本（没有‘），并且可以多变量赋值
+
+
+** TODO misc 杂物 永远需要整理
+*** 代理
+有些网站 Emacs 访问不了
+在命令行中启动 Emacs 时加上 "http_proxy=your-proxy-server-ip:port" 前缀.
+例如,
+http_proxy=http://127.0.0.1:8000 emacs -nw
+*** ggtags的使用
+
+C-x d 和 ~/linux,  Enter. 
+//Then, turn on ggtags: M-x ggtags-mode . 
+Press M-x,    ggtags-create-tags   打no, press Enter and wait 
+
+M-x, ggtags-find-file 或 C-c M-f    main.c 和 Enter.
+M-n 下一个     M-p 上一个
+
+ M-s s   init/main.c  在buffer中找文件
+
+ C-s  kernel_init  C-s   寻找一个东西
+M-. 在函数或变量上 反复跳
+M-* (or M-Shift-8) brings you back to the previous place 
+
+ Before using the ggtags or helm-gtags, remember to create a GTAGS database by running gtags at your project root in terminal:
+
+$ cd /path/to/project/root
+$ gtags
+
+过去的历史
+C-c M-h
+C-c M-/
+*** 包使用
+
+M-x list-package. 先i后x
+n and p.
+To view information of a package, press RET.
+To view information of a package, press RET.
+To mark a package for install, press i.
+To mark a package for delete, press d.
+To unmark a package, press u.
+To execute the marked packages (either for install or delete), press x.
+To refresh and update the latest package list, press r.
+To update all packages, press U.
+To filter to a group of packages, press f. Press TAB to display possible groups.
+To display these key bindings, press h.
+*** cc mode 种
+C-M-q 格式化这一对括号中的代码，注意，光标一定要置于左括号上。
+C-c C-q  格式化一个函数。
+第二个要说的就是移动功能，前面已经说过一些通用的移动命令，这里说的是C里面用到的特殊的命令。
+C-M-a 跳到函数的开始。
+C-M-e 跳到函数的结尾。
+C-M-b 当光标置于｝的后面时，跳转到与之匹配的｛。
+C-M-f  当光标置于｛的后面时，跳转到与之匹配的｝。
+C-c C-u 跳转到上一个条件编译的条件处。
+*** emacs c++ 资料
+    https://github.com/redguardtoo/cpputils-cmake
+    C++支持强大  https://github.com/redguardtoo/emacs.d
+
+*** 如下载了第三方插件,如果发觉其有问题,可以在不碰该插件原始代码的情况下修复.
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Advising-Functions.html
+*** [[http://blog.binchen.org/posts/emacs-as-c-ide-easy-way.htmlEmacs][ as C++ IDE, easy way]]
+

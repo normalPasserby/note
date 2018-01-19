@@ -1,0 +1,37 @@
+mathMY PROJECTS    -*- mode: org; -*-    -*- mode: org; -*-
+
+* 作息
+  早睡早起
+  俯卧撑 or run
+  背单词
+  饭后散步0.5-1小时或冥想1小时
+  午睡1小时或半小时
+  不碰台式电脑
+  番茄工作法
+
+* TODO plan
+回家第一件事就是在一个本子上写好作息和计划，经常看。
+** TODO [#A] emacs   elisp application  and so on
+** TODO [#A] spring
+** TODO [#A] jvm
+** TODO mit 线代视频 + 张宇高数视频
+** TODO 算法导论 书 视频 另外，邓俊辉的数据结构视频可以看看
+** poj
+** stl剖析
+** SCIP
+** misc
+   MyBatis
+   nginx
+   redix
+   Spark
+   docker
+   webkit webGL
+   java细节
+   cpp 细节
+   mariaDB
+   PostageSQL
+   Andoid  TCP/IP
+   lucence
+   后台开发核心技术与应用实践
+   自制编译器
+   深入剖析python

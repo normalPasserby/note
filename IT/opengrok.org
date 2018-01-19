@@ -1,0 +1,14 @@
+
+启动tomcat
+$ cd /home/kawai/OpenGrok/apache-tomcat-7.0.37/bin
+$ ./startup.sh
+
+
+
+
+
+浏览器打开 http://localhost:8080/source/
+Chrome 插件 Diigo 
+
+加入索引源代码
+./bin/OpenGrok index 源代码目录

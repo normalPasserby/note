@@ -1,0 +1,388 @@
+算法总结
+
+例子
+* 内容名
+** 例题 
+*** 伪代码
+
+
+* ----------算法 方法------------------------------
+* 数据结构
+** 栈
+*** 矩阵链乘
+    struct Matrix
+      int row
+      int col
+      Matrix(row, col)
+    //---map<char, Matrix>
+    sum = 0
+    run(string expr)
+    stack<Matrix> s
+    n = expr.lenth
+    for i : expr
+      if expr[i] == '('
+        continue
+      else if expr[i] == ')'
+        m2 = s.top and pop()
+        m1 = s.top and pop()
+        if error return false
+        sum += m1.row * m1.col * m2.col
+        m3.row, m3.col = m1.row, m2.col
+        s.push(m3)
+      else s.push(m[i])
+      return true
+** 链表
+*** 数组实现
+    //数组
+    next[]//next pointer
+    key[] //key
+    pre[] //last pointer
+    or
+    tree[?][3]
+*** 节点 指针
+** 二叉树
+*** 实现 数组 或 链表 或 空实现
+**** 数组
+     tree[]
+**** 链表
+     struct node
+       node *left
+       node *right
+       ? value
+    
+*** 遍历
+**** //dfs
+     node no
+     while
+       print
+       if left != nil 
+         f(left)   
+       if right != nil 
+         f(right)t
+**** //bfs
+     queue q
+     q.push(root)
+     while !q.empty
+       node = q.front 
+       q.pop
+       //........
+       if node.left q.push(node.left)
+       if node.right q.push(node.right)
+*** 后序 中序 构造
+    node f(l, r)//l,r表示区间
+      root = post[right]
+      noderoot = newroot(root)
+      i = find root index in inorder[]
+      get ll lr rl rr //得到区间
+      if exist: noderoot.left = f(ll, lr)
+      if exist: noderoot.right = f(rl, rr)
+      return noderoot
+** 图
+*** 实现 有向 无向
+    邻接矩阵  n[][]
+    邻接链表  vector<node*> n
+*** 遍历
+**** bfs
+     //数组
+     node start
+     queue q
+     while !q.empty()
+       v = q.pop()
+       //check every near node
+       for each u in to[v][]
+         if  u can visit//example u.color == while
+           u.color = gray
+           q.qush(u)
+           .....
+
+
+**** dfs
+** 分治
+*** 二分搜索
+**** 搜索 1->n中n+1个数 是否有重复的数
+***** Find the Duplicate Number ， n+1的数组 数字1-n之间
+      low = 1, high = n
+      while low < high
+       mid = low + (high - low) / 2 
+       cnt = 0
+       for item in n:
+         if item <= mid: ++cnt
+       if cnt <= mid://这区间无重复
+         low = mid + 1
+       else high = mid
+**** 旋转后数组的搜索`
+***** 找最小值
+      //example [4,5,6,1,2,3]
+      low=0 high=len-1
+      while low<high
+        mid=low+(high-low)/2
+        if(n[mid]>n[high]) low=mid+1
+        else high=mid
+***** 先求最小值，当作未旋转来求解(适用于无重复)
+      //find smallest
+      while(l < h)
+        mid = l + (h - l) / 2
+        if n[mid] > n[h]  l = mid + 1
+        else h = mid
+      rot=l
+      //binary
+      while
+       .............
+       realmid=(mid+rot)%size
+       ......
+**** todo 旋转后数组的搜索`含有重复数字
+     //先检查是否升序，再确定区间
+
+     while l < h
+       m = l + (h - l) / 2
+       if(n[m] == tar) 
+         return true
+       else if(n[m] > n[h])
+         if(n[l] <= tar <= n[m])
+           h = m;
+         else l = m + 1
+       else   
+**** 矩阵的搜索
+**** lower_bound    返回最前的数或n.size()
+     //
+     while l <= r
+       mid = ..
+       if n[mid] < target
+         l = mid + 1
+       else
+         r = mid - 1
+     return l    
+* ---------以下暂时略----
+** 线性表
+*** (下标)
+**** (下标构造新数)remove 有序 重复2次以上的数字 求之后的lenth
+ //考虑可否额外数组解决,用下标本地构建
+ //用n[i] == n[i-k+1]检查是否重复k次//有序
+ 用下标 in place 构建新数组
+     改成k次
+     index=k
+ for i from k - last
+     if(n[i] != n[index-k])//不重复
+       n[index++]=n[i]
+     ++i
+**** Product of Array Except Self
+     nums[]
+     res[]
+     for 1 <= i < n;res[0]=1    //左到右
+       res[i]=res[i-1]*nums[i-1]//在这里res[i]为1到i-1的乘积
+     for i = n-2 -> 0;int m=nums[n-1]//右到左
+       res[i]*=m;m*=nums[i];         //ok
+**** 跳跃游戏
+     n[i] 的值 决定跳多远
+     for i = [0, n)
+       reach = max(reach, n[i] + i)
+**** （for 变 左右夹逼 可以降复杂度）
+***** 有序数组 a,b,c与target有关系  求a+b+c=0 a+b+c最接近target的值 
+      for 0 <= i < lenth - 2
+        j=i+1
+        k=lenth-1
+        while j<k
+          if ...
+          else if...
+          else ...
+**** (四周夹逼)螺旋数组的构造
+     //四周夹逼
+     int colsta colend rowsta rowend
+     colsta <= j <= colend: []=..
+       ++rowsta
+     ...i
+       --colsta
+     ...j
+*** in place 旋转
+**** 一维旋转
+     example ab
+     a = a逆 // 1,2,3   ->  3,2,1
+     b = b逆
+     全部翻转
+**** 二维旋转  
+     reverse(m.begin(),m.end())
+     for 右上三角 in m
+       m[i][j] = m[j][i]
+***** 变种
+      5x3 矩阵
+      横向数字递减 5,4,3
+      纵向递减 2,1,0
+** 小技巧
+*** 标记 +-  +n  bit(与或非 操作高位)  ^=(异或)
+*** 计数求主要数字（个数大于一半or1/3....）
+    num1  cnt1  
+    if num1 == n[i] ++cnt1
+    else if cnt1 == 0 
+      num1 = n[i]
+    else --cnt1
+    //for each to count the number
+** 递归
+*** 递归式
+            1
+    f(n) =  a[n-1] + a[n-2]   //A[] 计算过
+            a[n] = f[n-1] + f[n-2]  
+**** (组合）
+     字符排序
+     如果给定N个不同字符，将这N个字符全排列，最终的结果将会是N!种
+***** 递归 伪代码
+      f(之前的集合A，之前集合的补集B）{
+         for(a element in A){
+          newA = A - a element
+          newB = B + a element
+          f(newA, newB)
+         }
+      }
+     
+*** 迭代 求数组所有子集 一个解题模板  回溯问题
+****  普通
+     run(...)
+     subs.push_back(sub)
+     for(i->size){
+       sub.push_back(nums[i])
+       run(...)
+       sub.pop_back()
+     }
+
+**** 包含重复, 输出[][1,2][1,2,2][2,2]...
+     for...
+       if(i != start && nums[i] == nums[i-1])continue;
+       .....
+*** DP  矩阵
+**** 和最大的子数组 用DP(可优化成常数空间)
+     vec<> dp = nums
+     // dp[i] is 以nums[i]为结尾的最大的和, 
+     dp[i] = max(nums[i] , dp[i-1] + nums[i])
+**** 机器人从1,1到 n,m 求path的总数(or math solve)
+     path[0][j] = path[i][j] = 1;
+     path[i][j] = path[i-1][j] + path[i][j-1];
+     return path[n-1][m-1]
+**** 三角形 每行一个 且上下相邻 求最小的和
+     new dp[] //优化后成一维
+     from last_line to first_line
+       dp[i] = min(dp[i], dp[i+1]) + n[line][i]
+**** 求一个数组中可以构成等差数组（等差数组size>=3）的个数
+     //找规律
+     12346  有3个  123 234 1234
+     123 1
+     1234 1+2
+     12345 1+2+3
+     。。。
+     sum cnt=1
+     if [i,j,k] is 等差
+       sum = sum + cnt
+       cnt++;
+     else cnt = 1  //重新计算
+*** dps
+****  有无状态
+*** bps
+****  图最短路
+****  最大陆地
+ for all
+   if(in area &&  == 1) num = (get_size() of 4 dir) + 1;
+* ----------------------------------------------
+
+* math
+** 余数与加减法
+   (x + y) % n 可换成 (x % n + y % n) % n 
+    减法同理
+** 求素数
+   i > 2 && i × i < n  求余  
+** 公约数
+** 位数和
+   while(!n) sum = n % 10;n /= 10;
+** 多区间，合并区间
+   (left, right)
+   根据 左 排序
+
+   if(  >= )合并(change right=max(...)) 
+   else push_back
+** 二维数组找 符合构造三角形边的3个数 的个数
+   sort
+   high low  m=high-1
+   if(n[l] + n[m] > n[h]) count += m - l and --m;
+   else ++l;
+** 矩阵变0 有一个0 他的行和列都变0
+   检查第一列和第一行 then
+   if(...==0)n[i][0] = n[0][j] = 0
+* array
+**    容器 set map unordered_map
+*** 是否有重复的数字。
+	 放入中set，set.size() == arr.size()
+*** 找到a[i] + a[j] = target 中的i,j
+	 map m;	
+	 m(a[i],i) m.count() == 0;
+*** k-diff pairs , k >= 0
+    求满足nums[i] - nums[j] = k 的个数
+    unordered_map m;if find(*it - k) then ++cnt;
+**    下标
+*** 有序数组 a1,a2,size为 m n 合并为一个
+	 k = m + n - 1;
+	 a1[k--] = a1[last] or a2[last];
+*** 移动数组 考虑移动后下标
+*** remove 重复的数 in an 有序 array    
+    int pos=0
+    if nums[i] != val 
+      then nums[pos++] = nums[i]
+ or
+    n = size - 1;
+   while
+    if nums[i] == val && i < n {
+      nums[i] = nums[n--]
+    } else ++i
+*** 多个0,1,2乱序,O（1）空间,排序
+    3下标,low=0,mid,high=n-1
+    mid from 0 -> n-1
+    if mid == 0  0放前头,++low
+    if mid == 2  2放后头,--high
+    if mid == 1  pop
+**    二维数组 
+*** 二维数组间的转换 把n1[r1][c1] 变成 n2[r2][c2]
+    r1 * c1 = r2 * c2 = k
+    n1[k / c1][k % c1] = n2[k / c2][k % c2]
+*** 帕斯卡三角
+    倒序相加, 
+    last to front
+    res[j] = res[j] + res[j - 1]
+*** 矩阵的搜索
+    二分搜索
+    M[m][n]
+    x=mid/n 
+    y=mid%n
+
+** 找到连续数组中消失的数，只有一个额外数组res
+  1.swap nums[i] , nums[nums[i] - 1]
+    ans 为 不是i-1的数
+  2.nums[nums[i] - 1] 变负数, or +n //判断时要变回+数
+    ans 为 正数的下标(+ 1 ??) or < n
+** 发现所有重复2次的数
+*** swap
+    for 0->last
+      if(n[i] != n[n[i]-1] swap
+      else ++i
+*** num = -num  
+    for 0->last
+      n[abs(n[i])-1]变负数
+      if(  > 0) push_back
+** 求数组中连续k的数的最大值
+   if i < k - 1 then get_sum
+   else i > k then sum = sum - nums[i - k] + nums[i]
+** 考虑例外状况，如（全是1）（二进制1的最大个数）
+	 3个数乘积最大值（不要忘了前两个负数x最大值）
+* 贪心算法
+  实例证伪
+
+* 小技巧
+** 大小写
+   upperc = lowerc - ('a' - 'A')
+   or new String.toUpperCase
+** 环状
+   int a[N]
+   a[i % N]  or a[(i % N) - 1] 
+** re 
+   省略多空格 str.split([ ]+)
+   找数字 Pattern  Matcher   ([0-9]+)
+
+
+* bug
+  int等基本类型 没初始化
+
