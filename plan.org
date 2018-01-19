@@ -10,13 +10,21 @@ mathMY PROJECTS    -*- mode: org; -*-    -*- mode: org; -*-
 [[http://www.vpsdaquan.cn/banwagong.html][vps]]
 [[https://bwh1.net/index.php][banwagong]]  1年
 
+[[https://www.zhihu.com/question/20097631/answer/32360831][RednaxelaFX的JVM推荐]]
+
+
 [[https://pan.baidu.com/s/1eRrUuci][实战Java虚拟机——JVM故障诊断与性能优化]]
 
+[[http://www.java1234.com/a/javabook/javabase/list_65_1.html][Java文档]]load
 下东西
 [[http://xwood.net/index.html][小木人]]
 [[https://pan.baidu.com/s/1bpoXrLt][ 实战Java虚拟机 ]]
 [[http://xwood.net/_site_domain_/_root/5870/5930/5932/t_c265828.html][Java虚拟机精讲]]
 [[http://xwood.net/_site_domain_/_root/5870/5930/5932/t_c265829.html][HotSpot实战]]
+
+===
+[[http://www.itgcs.net/post-190.html][揭秘Java虚拟机 JVM设计原理与实现]]  重点 有大量资源
+[[https://pan.baidu.com/share/link?shareid=1942766556&uk=3827579340][深入java虚拟机第]]
 
 * 作息
 | time | todo     | result |
