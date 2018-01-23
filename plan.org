@@ -1,40 +1,42 @@
 mathMY PROJECTS    -*- mode: org; -*-    -*- mode: org; -*-
+#+STARTUP: content 
+
 
 学会看电子书，文档来学习编程
 工作时前2小时做重要的事(看书，看文档)，后面做轻松的事（写项目，看视频）。
 
-+ java 要求
-  jdk jvm ssm 并发 分布 设计模式 数据库如mysql 
-  做到优秀
 
-[[http://www.vpsdaquan.cn/banwagong.html][vps]]
+
 [[https://bwh1.net/index.php][banwagong]]  1年
 
 [[https://www.zhihu.com/question/20097631/answer/32360831][RednaxelaFX的JVM推荐]]
 
-
-[[https://pan.baidu.com/s/1eRrUuci][实战Java虚拟机——JVM故障诊断与性能优化]]
-
 [[http://www.java1234.com/a/javabook/javabase/list_65_1.html][Java文档]]load
-下东西
 [[http://xwood.net/index.html][小木人]]
-[[https://pan.baidu.com/s/1bpoXrLt][ 实战Java虚拟机 ]]
-[[http://xwood.net/_site_domain_/_root/5870/5930/5932/t_c265828.html][Java虚拟机精讲]]
-[[http://xwood.net/_site_domain_/_root/5870/5930/5932/t_c265829.html][HotSpot实战]]
 
-===
-[[http://www.itgcs.net/post-190.html][揭秘Java虚拟机 JVM设计原理与实现]]  重点 有大量资源
-[[https://pan.baidu.com/share/link?shareid=1942766556&uk=3827579340][深入java虚拟机第]]
+
+目标 java后端开发工程师 -- 大数据工程师 -- 大数据科学家（数据挖掘工程师）
+
+
+[[https://www.zhihu.com/question/39430220][天天写业务代码的程序员，怎么成为技术大牛，开始写技术代码？]]
+答：能够用优秀的方法的解决问题。
+做法：
+封装和抽象使得业务代码更具可扩展性
+理解当前所用的成熟技术，
+google下跟踪调试进源代码深处解决产品业务的开发过程中存在的问题，
+用所学来极致地优化每一个细节。
+  
+[[https://zhuanlan.zhihu.com/p/22436213][大牛养成指南]] 
+
+
+* long plan  2018-2020
+  first   
+  jdk jvm 
+  ssm 并发 分布 设计模式 数据库如mysql 
+  大二下高数，要刷题了。 背英语
+  根据XX公司的技术栈进行学习
 
 * 作息
-| time | todo     | result |
-|------+----------+--------|
-|      | 起床     |        |
-|      | 俯卧撑   |        |
-|      | 早饭散步 |        |
-|      | 午睡     |        |
-|      |          |        |
-  
   早睡早起
   俯卧撑 or run
   背单词
@@ -42,25 +44,35 @@ mathMY PROJECTS    -*- mode: org; -*-    -*- mode: org; -*-
   午睡1小时或半小时
   不碰台式电脑
   番茄工作法
-  
-* TODO plan
-回家第一件事就是在一个本子上写好作息和计划，经常看。
-** TODO [#A] MyBatis  会用 会改
-** TODO [#A] jvm  会编译 会改 jdk 反射 xml 类加载 动态代理 ASM，CGLib和javassist
+  逛英文论坛 stackoverflow and so on  学习各种知识，锻炼能力
+
+
+* misc不重要也不紧急的TASK
+  org-pdf
+  买黑笔
+
+* short plan 
+
+
+** TODO [#A] jvm  会编译 会改 
+   深入理解Java虚拟机
+   HotSpot实战
+** TODO jdk 反射 xml 动态代理 ASM，CGLib和javassist
+   [[http://download.forge.objectweb.org/asm/asm4-guide.pdf][asm]]
+   cglib [[http://www.iteye.com/topic/799827][cglib源码学习交流]]
+   [[https://yq.aliyun.com/articles/14528][cglib]]
 ** TODO spring 会用 会改   官方文档
+   and spring mvc
+** TODO MyBatis  会用 会改
 ** TODO mit 线代视频 + 张宇高数视频
-** ?
-   redix
-   Spark
-   docker
-** emacs   elisp application  and so on
+** emacs   的几个函数 potono note
+** 写一个web主项目 造简单的轮子 在加上笔记 并不断的重构
 ** 算法导论 书 视频 另外，邓俊辉的数据结构视频可以看看
 ** poj
-** stl剖析
 ** SCIP
 ** misc  先会用，在看源码
    java细节
-   cpp 细节
+   cpp 细节  stl剖析
    mariaDB
    PostageSQL
    nginx
@@ -70,4 +82,20 @@ mathMY PROJECTS    -*- mode: org; -*-    -*- mode: org; -*-
    后台开发核心技术与应用实践
    深入剖析python [[https://www.zhihu.com/question/40787248/answer/88477685][内容类似于《Python源码剖析]]
    自制编译器
+   redix
+   Spark
+   docker
+** book
+编程原本 Elements of Programming
+C Interfaces and Implementation   //内容 经典算法的具体实现
+Language Implementation Patterns  编程语言实现模式
+The Algorithm Design Manual
+The Science of Programming
+Advanced Data Structures
 
+
+虚拟机——系统与进程的通用平台
+高级编译器设计与实现（鲸书）
+程序设计语言理论基础
+The Implementation of Functional Programming Languages
+Parsing Techniques——A Practical Guide
